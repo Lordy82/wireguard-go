@@ -12,11 +12,10 @@ import (
 
 	"golang.org/x/sys/windows"
 
-	"golang.zx2c4.com/wireguard/conn"
-	"golang.zx2c4.com/wireguard/device"
-	"golang.zx2c4.com/wireguard/ipc"
-
-	"golang.zx2c4.com/wireguard/tun"
+	"github.com/Lordy82/wireguard-go/conn"
+	"github.com/Lordy82/wireguard-go/device"
+	"github.com/Lordy82/wireguard-go/ipc"
+	"github.com/Lordy82/wireguard-go/tun"
 )
 
 const (
