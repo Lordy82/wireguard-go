@@ -23,8 +23,6 @@ import (
 	"time"
 
 	"golang.zx2c4.com/wireguard/tun"
-
-	"golang.org/x/net/dns/dnsmessage"
 	"gvisor.dev/gvisor/pkg/buffer"
 	"gvisor.dev/gvisor/pkg/tcpip"
 	"gvisor.dev/gvisor/pkg/tcpip/adapters/gonet"
@@ -37,6 +35,8 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/transport/tcp"
 	"gvisor.dev/gvisor/pkg/tcpip/transport/udp"
 	"gvisor.dev/gvisor/pkg/waiter"
+
+	"golang.org/x/net/dns/dnsmessage"
 )
 
 type netTun struct {
@@ -155,7 +155,7 @@ func (tun *netTun) Write(buf [][]byte, offset int) (int, error) {
 
 func (tun *netTun) WriteNotify() {
 	pkt := tun.ep.Read()
-	if pkt.IsNil() {
+	if pkt == nil {
 		return
 	}
 
